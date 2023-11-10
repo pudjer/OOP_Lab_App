@@ -14,4 +14,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GGregator_Domain\GGregator_Domain.csproj" />
+    <ProjectReference Include="..\GGregator_Infrastructure\GGregator_Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
