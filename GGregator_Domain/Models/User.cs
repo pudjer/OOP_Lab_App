@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GGregator_Domain.Models
+﻿namespace GGregator_Domain.Models
 {
     public partial class User
     {
