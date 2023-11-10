@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace GGregator_Infrastructure.DbContexts
 {
-    internal class SQLiteContext : DbContext
+    public class SQLiteContext : DbContext
     {
+        public SQLiteContext(DbContextOptions<SQLiteContext> options) : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) { }
     }
 }

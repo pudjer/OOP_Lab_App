@@ -1,3 +1,6 @@
+using GGregator_Infrastructure.DbContexts;
+using Microsoft.EntityFrameworkCore;
+
 namespace GGregator_API
 {
     public class Program
@@ -12,6 +15,9 @@ namespace GGregator_API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<SQLiteContext>(options =>
+            options.UseSqlite(builder.Configuration.GetConnectionString("SQLite")));
 
             var app = builder.Build();
 
