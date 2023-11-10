@@ -1,4 +1,5 @@
-﻿using GGregator_Domain.Models;
+﻿using GGregator_Domain.DTOs;
+using GGregator_Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace GGregator_Infrastructure.Facades
     {
         public Task<string?> Authenticate(string username, string password);
 
-        public Task<User?> Register(string username, string password);
+        public Task<UserDTO?> Register(string username, string password);
     }
 }
