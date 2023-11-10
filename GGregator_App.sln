@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGregator_Domain", "GGregat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGregator_Infrastructure", "GGregator_Infrastructure\GGregator_Infrastructure.csproj", "{BCA74DB7-71CD-4B2F-9E9B-3C8670813713}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGregator_Tests", "GGregator_Tests\GGregator_Tests.csproj", "{3E04EFE0-D0FF-4680-B4EE-E5BAA77A5F17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BCA74DB7-71CD-4B2F-9E9B-3C8670813713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCA74DB7-71CD-4B2F-9E9B-3C8670813713}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCA74DB7-71CD-4B2F-9E9B-3C8670813713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E04EFE0-D0FF-4680-B4EE-E5BAA77A5F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E04EFE0-D0FF-4680-B4EE-E5BAA77A5F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E04EFE0-D0FF-4680-B4EE-E5BAA77A5F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E04EFE0-D0FF-4680-B4EE-E5BAA77A5F17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
