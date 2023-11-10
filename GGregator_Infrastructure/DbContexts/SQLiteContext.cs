@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GGregator_Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace GGregator_Infrastructure.DbContexts
         public SQLiteContext(DbContextOptions<SQLiteContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) { }
+
+        public virtual DbSet<User> Users { get; set; }
     }
 }
