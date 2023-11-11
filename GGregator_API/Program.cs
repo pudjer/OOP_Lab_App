@@ -1,5 +1,8 @@
 using GGregator_Infrastructure.DbContexts;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 /*
  * REBRANDING REQUESTED:
@@ -26,7 +29,29 @@ namespace GGregator_API
             builder.Services.AddDbContext<SQLiteContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("SQLite")));
 
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateLifetime = true,
+                        ValidateIssuer = true,
+                        ValidIssuer = builder.Configuration.GetSection("JWT Bearer")
+                            .GetValue<string>("Issuer"),
+                        ValidateAudience = true,
+                        ValidAudience = builder.Configuration.GetSection("JWT Bearer")
+                            .GetValue<string>("Issuer"),
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(builder.Configuration
+                            .GetSection("JWT Bearer")
+                            .GetValue<string>("SymmetricSecurityKey"))),
+                    };
+                });
+
             var app = builder.Build();
+
+            app.UseAuthentication();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
