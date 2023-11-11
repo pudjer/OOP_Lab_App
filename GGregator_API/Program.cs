@@ -1,6 +1,13 @@
 using GGregator_Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 
+/*
+ * REBRANDING REQUESTED:
+ * крч дела выглядят так, что отдельные микросервисы будут взаимодействовать между собой
+ * через HTTP(S), поэтому в принципе это может уже и быть отдельным решением конкретно
+ * для одного микросервиса (здесь — для аутентификации и т. д.)
+ */
+
 namespace GGregator_API
 {
     public class Program
