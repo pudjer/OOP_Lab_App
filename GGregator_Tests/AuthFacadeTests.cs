@@ -8,7 +8,7 @@ namespace GGregator_Tests
         [Fact]
         public void HelperCheck()
         {
-            var testHelper = new TestHelper();
+            var testHelper = new AuthTestHelper();
             IAuthenticationFacade authFacade = new AppAuthFacade();
             // verify that the database and facade are created successfully
             Assert.True(true);
@@ -17,7 +17,7 @@ namespace GGregator_Tests
         [Fact]
         public async void Authenticate_ReturnsString_OnSuccessfulLogin()
         {
-            var testHelper = new TestHelper();
+            var testHelper = new AuthTestHelper();
             IAuthenticationFacade authFacade = new AppAuthFacade();
             var username = "test_user";
             var password = "password";

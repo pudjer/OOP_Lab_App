@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace GGregator_Tests
 {
-    internal class TestHelper
+    internal class AuthTestHelper
     {
         private readonly SQLiteContext _context;
-        public TestHelper()
+        public AuthTestHelper()
         {
             var contextOptions = new DbContextOptionsBuilder<SQLiteContext>()
                 .UseSqlite("Data Source=Local.db").Options;
@@ -25,7 +25,6 @@ namespace GGregator_Tests
                 Username = "test_user",
                 Password = BCrypt.Net.BCrypt.HashPassword("password")
             };
-
         }
     }
 
