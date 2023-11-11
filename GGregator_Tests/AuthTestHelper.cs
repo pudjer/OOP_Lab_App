@@ -1,6 +1,7 @@
 ﻿using BCrypt.Net;
 using GGregator_Domain.Models;
 using GGregator_Infrastructure.DbContexts;
+using GGregator_Infrastructure.Facades;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,13 @@ namespace GGregator_Tests
     internal class AuthTestHelper
     {
         public SQLiteContext Context { get; set; }
+        public IAuthenticationFacade AuthFacade
+        {
+            get
+            {
+                return new AppAuthFacade(Context);
+            }
+        }
         public AuthTestHelper()
         {
             var contextOptions = new DbContextOptionsBuilder<SQLiteContext>()
