@@ -16,6 +16,7 @@ namespace GGregator_Tests
         public AuthTestHelper()
         {
             var contextOptions = new DbContextOptionsBuilder<SQLiteContext>()
+                // TODO: decouple this stuff too
                 .UseSqlite("Data Source=Local.db").Options;
             _context = new SQLiteContext(contextOptions);
             _context.Database.EnsureDeleted();
