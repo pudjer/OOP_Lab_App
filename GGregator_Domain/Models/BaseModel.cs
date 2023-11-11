@@ -2,6 +2,6 @@
 {
     public abstract class BaseModel
     {
-        Guid Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

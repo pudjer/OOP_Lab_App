@@ -8,7 +8,7 @@ namespace GGregator_Domain.Models
 {
     public abstract class TimestampedModel : BaseModel
     {
-        DateTime CreatedAt { get; set; }
-        DateTime? UpdatedAt { get; set; } = null;
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; } = null;
     }
 }
