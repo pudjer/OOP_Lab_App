@@ -26,5 +26,18 @@ namespace GGregator_Tests
 
             Assert.IsType<string>(token);
         }
+
+        [Theory]
+        [InlineData("test_user", "invalid_password")]
+        [InlineData("nonexistent_user", "password")]
+        public async void Authenticate_ReturnsNull_OnInvaliLogin(string username, string password)
+        {
+            var testHelper = new AuthTestHelper();
+            IAuthenticationFacade authFacade = new AppAuthFacade();
+
+            var token = await authFacade.Authenticate(username, password);
+
+            Assert.Null(token);
+        }
     }
 }
