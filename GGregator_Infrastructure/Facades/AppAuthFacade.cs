@@ -1,4 +1,5 @@
 ﻿using GGregator_Domain.DTOs;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace GGregator_Infrastructure.Facades
 {
     public class AppAuthFacade : IAuthenticationFacade
     {
+        private readonly DbContext _context;
+        public AppAuthFacade(DbContext context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
         public async Task<string?> Authenticate(string username, string password)
         {
             throw new NotImplementedException();
