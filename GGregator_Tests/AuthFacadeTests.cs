@@ -27,7 +27,7 @@ namespace GGregator_Tests
 
             var dto = await facade.Register(username, password);
 
-            Assert.IsType<UserDTO>(dto);
+            Assert.IsType<SignedUpDTO>(dto);
         }
 
         [Theory]

@@ -1,6 +1,6 @@
 ﻿namespace GGregator_Domain.DTOs
 {
-    public class UserDTO
+    public class SignedUpDTO
     {
         public Guid Id { get; set; }
         public string Username { get; set; }

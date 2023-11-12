@@ -19,7 +19,7 @@ namespace GGregator_API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<UserDTO>> Register(RegisterDTO inDto)
+        public async Task<ActionResult<SignedUpDTO>> Register(RegisterDTO inDto)
         {
             // i kinda forgot that it can actually do most of the validation
             // even before reaching the controller
