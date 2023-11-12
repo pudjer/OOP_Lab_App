@@ -39,5 +39,20 @@ namespace GGregator_API.Controllers
             // and not something else
             return outDto;
         }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<LoggedInDTO>> Login(LoginDTO inDto)
+        {
+            string username = inDto.Username;
+            string password = inDto.Password;
+            var outDto = await _authenticationFacade.Authenticate(username, password);
+
+            if (outDto == null)
+            {
+                return BadRequest("Invalid login credentials.");
+            }
+
+            return outDto;
+        }
     }
 }
