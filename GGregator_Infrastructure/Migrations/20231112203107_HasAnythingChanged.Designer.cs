@@ -3,6 +3,7 @@ using System;
 using GGregator_Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GGregator_Infrastructure.Migrations
 {
     [DbContext(typeof(SQLiteContext))]
-    partial class SQLiteContextModelSnapshot : ModelSnapshot
+    [Migration("20231112203107_HasAnythingChanged")]
+    partial class HasAnythingChanged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.24");
@@ -65,15 +67,6 @@ namespace GGregator_Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("97fccbfe-22d7-4073-91c3-214676eb01dd"),
-                            CreatedAt = new DateTime(2023, 11, 12, 23, 35, 45, 973, DateTimeKind.Local).AddTicks(3430),
-                            Password = "$2a$11$xe.WkmmSnbiBcn0F/D.aVeFUSFuwD3Yx7A/h5wPlNuZNlNvKaJVw6",
-                            Username = "admin"
-                        });
                 });
 
             modelBuilder.Entity("GGregator_Domain.Models.Subscription", b =>
