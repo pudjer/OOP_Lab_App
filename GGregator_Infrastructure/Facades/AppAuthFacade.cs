@@ -15,12 +15,12 @@ namespace GGregator_Infrastructure.Facades
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
-        public async Task<string?> Authenticate(string username, string password)
+        public async Task<UserDTO?> Register(string username, string password)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<UserDTO?> Register(string username, string password)
+        public async Task<string?> Authenticate(string username, string password)
         {
             throw new NotImplementedException();
         }
