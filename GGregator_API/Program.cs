@@ -1,4 +1,5 @@
 using GGregator_Infrastructure.DbContexts;
+using GGregator_Infrastructure.Facades;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -28,6 +29,9 @@ namespace GGregator_API
 
             builder.Services.AddDbContext<SQLiteContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("SQLite")));
+
+            builder.Services.AddScoped<DbContext, SQLiteContext>();
+            builder.Services.AddScoped<IAuthenticationFacade, AppAuthFacade>();
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
