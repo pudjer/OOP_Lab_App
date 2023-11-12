@@ -20,7 +20,7 @@ namespace GGregator_Infrastructure.Facades
             throw new NotImplementedException();
         }
 
-        public async Task<string?> Authenticate(string username, string password)
+        public async Task<LoggedInDTO?> Authenticate(string username, string password)
         {
             throw new NotImplementedException();
         }

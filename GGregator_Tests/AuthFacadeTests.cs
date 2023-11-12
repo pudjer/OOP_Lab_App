@@ -18,7 +18,7 @@ namespace GGregator_Tests
         }
 
         [Fact]
-        public async void Register_ReturnsUserDTO_OnSuccessfulSignup()
+        public async void Register_ReturnsSignedUpDTO_OnSuccessfulSignup()
         {
             var testHelper = new AuthTestHelper();
             IAuthenticationFacade facade = testHelper.AuthFacade;
@@ -45,6 +45,7 @@ namespace GGregator_Tests
             Assert.Null(dto);
         }
 
+        [Fact]
         public async void Register_CreatesUser_OnSuccessfulSignup()
         {
             var testHelper = new AuthTestHelper();
@@ -58,6 +59,7 @@ namespace GGregator_Tests
             Assert.NotNull(user);
         }
 
+        [Fact]
         public async void Register_PasswordMatches_OnSuccessfulSignup()
         {
             var testHelper = new AuthTestHelper();
@@ -72,7 +74,7 @@ namespace GGregator_Tests
         }
 
         [Fact]
-        public async void Authenticate_ReturnsString_OnSuccessfulLogin()
+        public async void Authenticate_ReturnsLggedInDTO_OnSuccessfulLogin()
         {
             var testHelper = new AuthTestHelper();
             IAuthenticationFacade authFacade = testHelper.AuthFacade;
@@ -81,7 +83,7 @@ namespace GGregator_Tests
 
             var token = await authFacade.Authenticate(username, password);
 
-            Assert.IsType<string>(token);
+            Assert.IsType<LoggedInDTO>(token);
         }
 
         [Theory]
