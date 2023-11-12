@@ -27,9 +27,29 @@ namespace GGregator_Infrastructure.Facades
         }
         public async Task<SignedUpDTO?> Register(string username, string password)
         {
-            // validation for whether the username already exists will be later
-            // maybe...
-            throw new NotImplementedException();
+            var existUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (existUser != null)
+            {
+                return null;
+            }
+            var newUser = new User
+            {
+                Username = username,
+                CreatedAt = DateTime.UtcNow,
+                Password = BCrypt.Net.BCrypt.HashPassword(password),
+            };
+
+            await _context.AddAsync(newUser);
+            await _context.SaveChangesAsync();
+            
+            var userToken = GenerateToken(newUser.Username);
+
+            return new SignedUpDTO
+            {
+                Id = newUser.Id,
+                Username = newUser.Username,
+                Token = userToken
+            };
         }
 
         public async Task<LoggedInDTO?> Authenticate(string username, string password)

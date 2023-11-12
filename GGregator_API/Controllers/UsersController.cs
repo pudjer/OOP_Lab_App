@@ -32,7 +32,7 @@ namespace GGregator_API.Controllers
             // so will need to specify a little bit on this later
             if (outDto == null)
             {
-                return BadRequest("Invalid sign-up credentials.");
+                return BadRequest("User with that username already exists.");
             }
 
             // actually I even doubt whether the facade actually needs to return a DTO

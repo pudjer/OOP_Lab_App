@@ -35,6 +35,9 @@ namespace GGregator_Tests
         [InlineData("nonexistent_user", "password")]
         [InlineData("empty_password", "")]
         [InlineData("", "empty_username")]
+		// come to think of it
+		// maybe it should return null only on duplicate username
+		// the rest is the job of validators upstream
         public async void Register_ReturnsNull_OnInvalidSignup(string username, string password)
         {
             var testHelper = new AuthTestHelper();
