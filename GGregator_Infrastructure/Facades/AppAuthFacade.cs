@@ -95,8 +95,7 @@ namespace GGregator_Infrastructure.Facades
                 issuer: issuer,
                 audience: audience,
                 claims: claims,
-                // would also probably have to wrestle with the timezone dark gods later
-                expires: TokenExpirationDate(DateTime.Now),
+                expires: TokenExpirationDate(DateTime.UtcNow),
                 signingCredentials: credentials);
 
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
