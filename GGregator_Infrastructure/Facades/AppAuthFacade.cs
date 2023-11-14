@@ -18,9 +18,9 @@ namespace GGregator_Infrastructure.Facades
 {
     public class AppAuthFacade : IAuthenticationFacade
     {
-        private readonly SQLiteContext _context;
+        private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
-        public AppAuthFacade(SQLiteContext context, IConfiguration configuration)
+        public AppAuthFacade(AppDbContext context, IConfiguration configuration)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));

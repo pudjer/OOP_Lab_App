@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GGregator_Infrastructure.Migrations
 {
-    [DbContext(typeof(SQLiteContext))]
+    [DbContext(typeof(AppDbContext))]
     partial class SQLiteContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

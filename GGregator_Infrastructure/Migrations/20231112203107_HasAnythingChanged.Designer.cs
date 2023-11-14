@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GGregator_Infrastructure.Migrations
 {
-    [DbContext(typeof(SQLiteContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20231112203107_HasAnythingChanged")]
     partial class HasAnythingChanged
     {

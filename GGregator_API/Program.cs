@@ -27,10 +27,10 @@ namespace GGregator_API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDbContext<SQLiteContext>(options =>
+            builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("SQLite")));
 
-            builder.Services.AddScoped<DbContext, SQLiteContext>();
+            builder.Services.AddScoped<DbContext, AppDbContext>();
             builder.Services.AddScoped<IAuthenticationFacade, AppAuthFacade>();
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

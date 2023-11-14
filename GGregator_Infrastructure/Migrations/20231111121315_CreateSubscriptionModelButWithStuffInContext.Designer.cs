@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GGregator_Infrastructure.Migrations
 {
-    [DbContext(typeof(SQLiteContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20231111121315_CreateSubscriptionModelButWithStuffInContext")]
     partial class CreateSubscriptionModelButWithStuffInContext
     {

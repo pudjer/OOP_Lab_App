@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GGregator_Infrastructure.Migrations
 {
-    [DbContext(typeof(SQLiteContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20231110184228_AddUserInitial")]
     partial class AddUserInitial
     {
