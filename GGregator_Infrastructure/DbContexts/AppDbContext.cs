@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GGregator_Infrastructure.DbContexts
 {
-    public class SQLiteContext : DbContext
+    public class AppDbContext : DbContext
     {
-        public SQLiteContext(DbContextOptions<SQLiteContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
