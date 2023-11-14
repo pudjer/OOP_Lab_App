@@ -1,4 +1,4 @@
-﻿using GGregator_Domain.DTOs;
+﻿using GGregator_Domain.DTOs.OutDTOs;
 
 namespace GGregator_Infrastructure.Facades
 {

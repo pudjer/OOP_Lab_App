@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GGregator_Domain.DTOs
+namespace GGregator_Domain.DTOs.InDTOs
 {
     public class RegisterDTO
     {
@@ -9,7 +9,7 @@ namespace GGregator_Domain.DTOs
         [Required]
         public string Password { get; set; } = string.Empty;
         [Required]
-        [Compare("Password", ErrorMessage="Password confirmation doesn't match.")]
+        [Compare("Password", ErrorMessage = "Password confirmation doesn't match.")]
         public string ConfirmPassword { get; set; } = string.Empty;
     }
 }

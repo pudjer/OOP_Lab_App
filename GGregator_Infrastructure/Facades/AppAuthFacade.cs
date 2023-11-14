@@ -1,5 +1,5 @@
 ﻿using BCrypt.Net;
-using GGregator_Domain.DTOs;
+using GGregator_Domain.DTOs.OutDTOs;
 using GGregator_Domain.Models;
 using GGregator_Infrastructure.DbContexts;
 using Microsoft.AspNetCore.Mvc;

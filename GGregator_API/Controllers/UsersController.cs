@@ -1,4 +1,5 @@
-﻿using GGregator_Domain.DTOs;
+﻿using GGregator_Domain.DTOs.InDTOs;
+using GGregator_Domain.DTOs.OutDTOs;
 using GGregator_Infrastructure.Facades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

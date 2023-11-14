@@ -1,4 +1,4 @@
-﻿namespace GGregator_Domain.DTOs
+﻿namespace GGregator_Domain.DTOs.OutDTOs
 {
     public class SignedUpDTO
     {
