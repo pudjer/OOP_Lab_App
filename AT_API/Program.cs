@@ -1,5 +1,7 @@
+using AT_Domain.Models;
 using AT_Infrastructure.DbContexts;
 using AT_Infrastructure.Facades;
+using AT_Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -33,6 +35,7 @@ namespace AT_API
 
             builder.Services.AddScoped<DbContext, AppDbContext>();
             builder.Services.AddScoped<IAuthenticationFacade, AppAuthFacade>();
+            builder.Services.AddScoped<IBaseModelRepository<User>, UserRepository>();
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
