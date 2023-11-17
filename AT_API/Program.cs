@@ -63,8 +63,6 @@ namespace AT_API
                     Name = "Authorization",
                     Type = SecuritySchemeType.ApiKey,
                 });
-                // как говорил Стёпа
-                // не знаю зачем…
                 // options.OperationFilter<SecurityRequirementsOperationFilter>();
             });
 

@@ -58,14 +58,14 @@ namespace AT_API.Controllers
         }
 
         [HttpPost("subscribe")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> Subscribe()
         {
             throw new NotImplementedException("Amogus Sussy");
         }
 
         [HttpPost("unsubscribe")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> Unsubscribe()
         {
             throw new NotImplementedException("Amogus Sussy 2: Electric Boogaloo");
