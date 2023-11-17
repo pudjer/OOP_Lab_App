@@ -3,6 +3,7 @@ using System;
 using GGregator_Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GGregator_Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class SQLiteContextModelSnapshot : ModelSnapshot
+    [Migration("20231117091032_RemoveSubscription")]
+    partial class RemoveSubscription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.24");
@@ -25,12 +27,6 @@ namespace GGregator_Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsAdmin")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsSubscribed")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -50,11 +46,9 @@ namespace GGregator_Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b3325b48-a690-4839-91bd-8bf1d60dca6c"),
-                            CreatedAt = new DateTime(2023, 9, 17, 19, 19, 19, 97, DateTimeKind.Utc),
-                            IsAdmin = true,
-                            IsSubscribed = true,
-                            Password = "$2a$11$uCBSToyuBC9QsjgVWoiuDO8ttnnvK4eW.I8XrxVFeIGsUJm/WP0O6",
+                            Id = new Guid("aff86cec-4257-464d-b48c-0bab6a5d9b8f"),
+                            CreatedAt = new DateTime(2023, 11, 17, 9, 10, 32, 120, DateTimeKind.Utc).AddTicks(8614),
+                            Password = "$2a$11$bKpyKOdeCAv3Y3ueqHb.duDw8qj9mOwVkGnTi2bgvNoFvQavC6RvW",
                             Username = "admin"
                         });
                 });

@@ -15,9 +15,11 @@ namespace GGregator_Infrastructure.DbContexts
                 new User
                 {
                     Id = Guid.NewGuid(),
-                    CreatedAt = DateTime.UtcNow,
+                    CreatedAt = new DateTime(2023, 9, 17, 19, 19, 19, 97, DateTimeKind.Utc),
                     Username = "admin",
                     Password = BCrypt.Net.BCrypt.HashPassword("password"),
+                    IsAdmin = true,
+                    IsSubscribed = true,
                 });
 #endif
         }

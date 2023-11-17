@@ -3,6 +3,7 @@ using System;
 using GGregator_Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GGregator_Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class SQLiteContextModelSnapshot : ModelSnapshot
+    [Migration("20231117091134_AddAdminAndSubscribedFlags")]
+    partial class AddAdminAndSubscribedFlags
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.24");
@@ -50,11 +52,11 @@ namespace GGregator_Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b3325b48-a690-4839-91bd-8bf1d60dca6c"),
-                            CreatedAt = new DateTime(2023, 9, 17, 19, 19, 19, 97, DateTimeKind.Utc),
-                            IsAdmin = true,
-                            IsSubscribed = true,
-                            Password = "$2a$11$uCBSToyuBC9QsjgVWoiuDO8ttnnvK4eW.I8XrxVFeIGsUJm/WP0O6",
+                            Id = new Guid("8d76de5e-8e04-44a9-ae0b-c7f0014bf5f7"),
+                            CreatedAt = new DateTime(2023, 11, 17, 9, 11, 34, 330, DateTimeKind.Utc).AddTicks(9595),
+                            IsAdmin = false,
+                            IsSubscribed = false,
+                            Password = "$2a$11$ZkcgTqTH4uHiLNtSLikmTehXCioYUaVBiDFMEmPra9iSBaE73iwHy",
                             Username = "admin"
                         });
                 });

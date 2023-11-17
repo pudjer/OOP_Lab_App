@@ -40,12 +40,14 @@ namespace GGregator_Infrastructure.Facades
                 Username = username,
                 CreatedAt = DateTime.UtcNow,
                 Password = BCrypt.Net.BCrypt.HashPassword(password),
+                IsAdmin = false,
+                IsSubscribed = false,
             };
 
             await _context.AddAsync(newUser);
             await _context.SaveChangesAsync();
             
-            var userToken = GenerateToken(newUser.Username);
+            var userToken = GenerateToken(newUser.Username, newUser.Id.ToString(), newUser.IsAdmin);
 
             return new SignedUpDTO
             {
@@ -67,14 +69,14 @@ namespace GGregator_Infrastructure.Facades
             {
                 return new LoggedInDTO
                 {
-                    Token = GenerateToken(username)
+                    Token = GenerateToken(username, user.Id.ToString(), user.IsAdmin)
                 };
             }
 
             return null;
         }
 
-        private string GenerateToken(string username)
+        private string GenerateToken(string username, string id, bool isAdmin)
         {
             //var sampleToken = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJHR3JlZ2F0b3IuQXV0aCIsIlVzZXJuYW1lIjoiVGVzdFVzZXIiLCJBdWRpZW5jZSI6IkdHcmVnYXRvci5BdXRoLkNsaWVudCIsImV4cCI6MTcwMjQxMTEyOSwiaWF0IjoxNjk5ODE5MTI5fQ.VVLmJ9wxi2hHDwBgOGF9GE6LCWDrPRKqj2EJaOACrcM";
 
@@ -91,7 +93,9 @@ namespace GGregator_Infrastructure.Facades
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, username),
+                new Claim("id", id),
+                new Claim("name", username),
+                new Claim("is_admin", isAdmin.ToString(), ClaimValueTypes.Boolean),
             };
 
             var token = new JwtSecurityToken(
