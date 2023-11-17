@@ -1,6 +1,7 @@
 ﻿using AT_Domain.DTOs.InDTOs;
 using AT_Domain.DTOs.OutDTOs;
 using AT_Infrastructure.Facades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -54,6 +55,20 @@ namespace AT_API.Controllers
             }
 
             return outDto;
+        }
+
+        [HttpPost("subscribe")]
+        [Authorize]
+        public async Task<ActionResult> Subscribe()
+        {
+            throw new NotImplementedException("Amogus Sussy");
+        }
+
+        [HttpPost("unsubscribe")]
+        [Authorize]
+        public async Task<ActionResult> Unsubscribe()
+        {
+            throw new NotImplementedException("Amogus Sussy 2: Electric Boogaloo");
         }
     }
 }
