@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace GGregator_Infrastructure.Migrations
+namespace AT_Infrastructure.Migrations
 {
     public partial class CreateSubscriptionModel : Migration
     {

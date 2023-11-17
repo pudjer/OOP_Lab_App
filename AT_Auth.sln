@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GGregator_API", "GGregator_API\GGregator_API.csproj", "{CC51A7ED-4F56-4024-A196-1E0BD5BA89E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AT_API", "GGregator_API\AT_API.csproj", "{CC51A7ED-4F56-4024-A196-1E0BD5BA89E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GGregator_Domain", "GGregator_Domain\GGregator_Domain.csproj", "{4B6CDD59-6C8B-4BDC-B61D-8CE4F6BB089D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AT_Domain", "GGregator_Domain\AT_Domain.csproj", "{4B6CDD59-6C8B-4BDC-B61D-8CE4F6BB089D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GGregator_Infrastructure", "GGregator_Infrastructure\GGregator_Infrastructure.csproj", "{BCA74DB7-71CD-4B2F-9E9B-3C8670813713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AT_Infrastructure", "GGregator_Infrastructure\AT_Infrastructure.csproj", "{BCA74DB7-71CD-4B2F-9E9B-3C8670813713}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

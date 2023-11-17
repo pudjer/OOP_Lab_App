@@ -1,4 +1,4 @@
-﻿namespace GGregator_Domain.Models
+﻿namespace AT_Domain.Models
 {
     public partial class User : TimestampedModel
     {

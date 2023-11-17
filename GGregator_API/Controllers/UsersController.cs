@@ -1,10 +1,10 @@
-﻿using GGregator_Domain.DTOs.InDTOs;
-using GGregator_Domain.DTOs.OutDTOs;
-using GGregator_Infrastructure.Facades;
+﻿using AT_Domain.DTOs.InDTOs;
+using AT_Domain.DTOs.OutDTOs;
+using AT_Infrastructure.Facades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace GGregator_API.Controllers
+namespace AT_API.Controllers
 {
     [Route("api/users")]
     [ApiController]

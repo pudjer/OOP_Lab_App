@@ -1,7 +1,7 @@
 ﻿using BCrypt.Net;
-using GGregator_Domain.DTOs.OutDTOs;
-using GGregator_Domain.Models;
-using GGregator_Infrastructure.DbContexts;
+using AT_Domain.DTOs.OutDTOs;
+using AT_Domain.Models;
+using AT_Infrastructure.DbContexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +14,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GGregator_Infrastructure.Facades
+namespace AT_Infrastructure.Facades
 {
     // если использовать паттерн Aggregate, то, видимо, только одному классу нужно
     // будет работать как с юзерами, так и подписками? (т. е. этот фасад объединить с

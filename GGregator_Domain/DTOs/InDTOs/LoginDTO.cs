@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GGregator_Domain.DTOs.InDTOs
+namespace AT_Domain.DTOs.InDTOs
 {
     public class LoginDTO
     {

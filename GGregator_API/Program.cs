@@ -1,5 +1,5 @@
-using GGregator_Infrastructure.DbContexts;
-using GGregator_Infrastructure.Facades;
+using AT_Infrastructure.DbContexts;
+using AT_Infrastructure.Facades;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -12,7 +12,7 @@ using System.Text;
  * для одного микросервиса (здесь — для аутентификации и т. д.)
  */
 
-namespace GGregator_API
+namespace AT_API
 {
     public class Program
     {

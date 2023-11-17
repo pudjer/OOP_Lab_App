@@ -1,6 +1,6 @@
-﻿using GGregator_Domain.DTOs.OutDTOs;
+﻿using AT_Domain.DTOs.OutDTOs;
 
-namespace GGregator_Infrastructure.Facades
+namespace AT_Infrastructure.Facades
 {
     public interface IAuthenticationFacade
     {

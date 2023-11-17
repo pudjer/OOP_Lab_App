@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace GGregator_Infrastructure.Migrations
+namespace AT_Infrastructure.Migrations
 {
     public partial class RemoveUserRole : Migration
     {

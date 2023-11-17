@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "GGregator_API": {
+    "AT_API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

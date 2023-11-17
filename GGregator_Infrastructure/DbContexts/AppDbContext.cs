@@ -1,7 +1,7 @@
-﻿using GGregator_Domain.Models;
+﻿using AT_Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GGregator_Infrastructure.DbContexts
+namespace AT_Infrastructure.DbContexts
 {
     public class AppDbContext : DbContext
     {
