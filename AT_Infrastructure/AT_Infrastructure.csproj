@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GGregator_Domain\AT_Domain.csproj" />
+    <ProjectReference Include="..\AT_Domain\AT_Domain.csproj" />
   </ItemGroup>
 
 </Project>
