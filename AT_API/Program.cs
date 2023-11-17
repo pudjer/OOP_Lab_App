@@ -25,18 +25,6 @@ namespace AT_API
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-
-            builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlite(builder.Configuration.GetConnectionString("SQLite")));
-
-            builder.Services.AddScoped<DbContext, AppDbContext>();
-            builder.Services.AddScoped<IAuthenticationFacade, AppAuthFacade>();
-            builder.Services.AddScoped<IBaseModelRepository<User>, UserRepository>();
-
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -56,6 +44,22 @@ namespace AT_API
                             .GetValue<string>("SymmetricSecurityKey"))),
                     };
                 });
+            // bruhus momentius 
+            // i forgor to add this lmaoooo
+            builder.Services.AddAuthorization();
+
+            builder.Services.AddControllers();
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlite(builder.Configuration.GetConnectionString("SQLite")));
+
+            builder.Services.AddScoped<DbContext, AppDbContext>();
+            builder.Services.AddScoped<IAuthenticationFacade, AppAuthFacade>();
+            builder.Services.AddScoped<IBaseModelRepository<User>, UserRepository>();
+
 
             builder.Services.AddSwaggerGen(options =>
             {
