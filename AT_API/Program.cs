@@ -3,6 +3,7 @@ using AT_Infrastructure.Facades;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 
 /*
@@ -53,13 +54,32 @@ namespace AT_API
                     };
                 });
 
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "Authorization header: \"bearer {token}\"",
+                    In = ParameterLocation.Header,
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                });
+                // как говорил Стёпа
+                // не знаю зачем…
+                // options.OperationFilter<SecurityRequirementsOperationFilter>();
+            });
+
             var app = builder.Build();
 
             app.UseAuthentication();
+            app.UseAuthorization();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                Random random = new Random();
+                // time to do a little trolling
+                if (random.Next(0, 19971997) == 69385)
+                    throw new FieldAccessException("Surprise!");
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
