@@ -61,6 +61,9 @@ namespace AT_API.Controllers
         //[Authorize]
         public async Task<ActionResult> Subscribe()
         {
+            // or something like this idk
+            Guid id = new Guid(this.Request.Headers["Authorization"].ToString());
+
             throw new NotImplementedException("Amogus Sussy");
         }
 
