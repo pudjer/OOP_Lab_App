@@ -12,26 +12,10 @@ namespace AT_Infrastructure.Repositories
     public class UserRepository : IBaseModelRepository<User>
     {
         private readonly AppDbContext _context;
+
         public UserRepository(AppDbContext context)
         {
             _context = context;
-        }
-
-        public async Task<User> AddAsync(User entity)
-        {
-            await _context.Users.AddAsync(entity);
-            await _context.SaveChangesAsync();
-            return entity;
-        }
-
-        public async Task DeleteAsync(User entity)
-        {
-            var user = await _context.Users.FindAsync(entity.Id);
-            if (user != null)
-            {
-                _context.Remove(user);
-                await _context.SaveChangesAsync();
-            }
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()
@@ -45,6 +29,13 @@ namespace AT_Infrastructure.Repositories
             return await _context.Users.FindAsync(id);
         }
 
+        public async Task<User> AddAsync(User entity)
+        {
+            await _context.Users.AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return entity;
+        }
+
         public async Task<User?> UpdateAsync(User entity)
         {
             var existingUser = await GetAsync(entity.Id);
@@ -55,6 +46,16 @@ namespace AT_Infrastructure.Repositories
                 return existingUser;
             }
             return null; // idk how to deal with this really
+        }
+
+        public async Task DeleteAsync(User entity)
+        {
+            var user = await _context.Users.FindAsync(entity.Id);
+            if (user != null)
+            {
+                _context.Remove(user);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
