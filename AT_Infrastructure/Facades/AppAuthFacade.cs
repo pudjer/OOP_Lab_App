@@ -78,8 +78,6 @@ namespace AT_Infrastructure.Facades
 
         private string GenerateToken(string username, string id, bool isAdmin)
         {
-            //var sampleToken = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJHR3JlZ2F0b3IuQXV0aCIsIlVzZXJuYW1lIjoiVGVzdFVzZXIiLCJBdWRpZW5jZSI6IkdHcmVnYXRvci5BdXRoLkNsaWVudCIsImV4cCI6MTcwMjQxMTEyOSwiaWF0IjoxNjk5ODE5MTI5fQ.VVLmJ9wxi2hHDwBgOGF9GE6LCWDrPRKqj2EJaOACrcM";
-
             var keyString = _configuration.GetSection("JWT Bearer")
                 .GetValue<string>("SymmetricSecurityKey");
 
@@ -109,9 +107,9 @@ namespace AT_Infrastructure.Facades
             return tokenString;
         }
 
-        private DateTime TokenExpirationDate(DateTime timestamp )
+        private DateTime TokenExpirationDate(DateTime timestamp)
         {
-            return timestamp.AddDays(1997);
+            return timestamp.Add(TimeSpan.FromDays(99));
         }
     }
 }

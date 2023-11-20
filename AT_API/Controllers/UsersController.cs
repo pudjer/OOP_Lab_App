@@ -64,13 +64,15 @@ namespace AT_API.Controllers
         }
 
         [HttpPost("subscribe")]
-        //[Authorize]
         public async Task<ActionResult> Subscribe()
         {
             // or something like this idk
             //Guid id = new Guid(this.Request.Headers["Authorization"].ToString());
             // for now no idea how to get the user from the header or how to even
             // make sure that JWT auth is actually working (it's not)
+            throw new Exception(
+                this.Request.Headers.Authorization.ToString()
+                );
             Guid id = Guid.NewGuid();
             var user = await _userRepository.GetAsync(id);
             if (user == null)
@@ -155,7 +157,6 @@ namespace AT_API.Controllers
         }
 
         [HttpPost("unsubscribe")]
-        //[Authorize]
         public async Task<ActionResult> Unsubscribe()
         {
             Guid id = new Guid();
