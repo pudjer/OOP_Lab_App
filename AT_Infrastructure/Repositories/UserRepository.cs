@@ -1,11 +1,6 @@
 ﻿using AT_Domain.Models;
 using AT_Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AT_Infrastructure.Repositories
 {

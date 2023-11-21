@@ -1,18 +1,12 @@
-﻿using BCrypt.Net;
-using AT_Domain.DTOs.OutDTOs;
+﻿using AT_Domain.DTOs.OutDTOs;
 using AT_Domain.Models;
 using AT_Infrastructure.DbContexts;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AT_Infrastructure.Facades
 {
