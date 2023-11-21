@@ -33,13 +33,13 @@ namespace AT_API.Controllers
         [Authorize]
         public async Task<ActionResult<User>> Me()
         {
-            var u = (await _userRepository.GetAllAsync()).FirstOrDefault();
-
-            if (u == null)
-            {
-                return NoContent();
-            }
-            return Ok(u);
+            var claims = Request.HttpContext.User.Claims;
+            var id = claims.FirstOrDefault(c => c.Type == "id").Value;
+            var current_user = await _userRepository.GetAsync(new Guid(id));
+            return Ok(current_user);
+            // it doesn't matter if this code sucks (since duplicating it
+            // in every method woudl be a pain)
+            // we'll get to that later
         }
 #endif
 

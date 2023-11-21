@@ -56,6 +56,8 @@ namespace AT_API
             builder.Services.AddScoped<IAuthenticationFacade, AppAuthFacade>();
             builder.Services.AddScoped<IBaseModelRepository<User>, UserRepository>();
 
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
