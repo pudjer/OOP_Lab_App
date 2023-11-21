@@ -78,16 +78,13 @@ namespace AT_Infrastructure.Facades
 
         private string GenerateToken(string username, string id, bool isAdmin)
         {
-            var keyString = _configuration.GetSection("JWT Bearer")
-                .GetValue<string>("SymmetricSecurityKey");
+            var keyString = _configuration["Bearer:Key"];
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyString));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var issuer = _configuration.GetSection("JWT Bearer")
-                .GetValue<string>("Issuer");
-            var audience = _configuration.GetSection("JWT Bearer")
-                .GetValue<string>("Audience");
+            var issuer = _configuration["Bearer:Issuer"];
+            var audience = _configuration["Bearer:Audience"];
 
             var claims = new List<Claim>
             {

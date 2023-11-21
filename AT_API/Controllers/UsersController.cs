@@ -26,6 +26,23 @@ namespace AT_API.Controllers
             _userRepository = userRepository;
         }
 
+#if DEBUG
+        // just a small test method that is supposed to return YOU by your token
+        // everything would break anyway but whatever
+        [HttpGet("me")]
+        [Authorize]
+        public async Task<ActionResult<User>> Me()
+        {
+            var u = (await _userRepository.GetAllAsync()).FirstOrDefault();
+
+            if (u == null)
+            {
+                return NoContent();
+            }
+            return Ok(u);
+        }
+#endif
+
         [HttpPost("register")]
         public async Task<ActionResult<SignedUpDTO>> Register(RegisterDTO inDto)
         {
@@ -64,6 +81,7 @@ namespace AT_API.Controllers
         }
 
         [HttpPost("subscribe")]
+        [Authorize]
         public async Task<ActionResult> Subscribe()
         {
             // or something like this idk
@@ -157,6 +175,7 @@ namespace AT_API.Controllers
         }
 
         [HttpPost("unsubscribe")]
+        [Authorize]
         public async Task<ActionResult> Unsubscribe()
         {
             Guid id = new Guid();
