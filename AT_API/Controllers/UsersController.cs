@@ -190,7 +190,6 @@ ooddodddddddxxdddxxkkkOOO0KKKXXXNNNNWWWWWWNWWWWWWNNNNNNNNNNNNWWNNNNNNWNNNNNNNNNX
             }
             if (!user.IsSubscribed)
             {
-                // без детского сада в этот раз
                 return NoContent();
             }
             user.IsSubscribed = false;
