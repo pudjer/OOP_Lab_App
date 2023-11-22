@@ -97,20 +97,6 @@ namespace AT_API.Controllers
                 return NotFound();
             }
             if (user.IsSubscribed)
-//KKK0000KKKKKKKKKKXXXXKXXXXKKKKKKKKKK000000KKKKKK000K0000OkkkkOOOkkkkkkkkkOOkxo:'.                               .'lxkkkkkkkkkkkOOOOOOkkkkkkxxdddoc;:clllc:::::cc:,,,,,,,;cllc;;,,'',,,,;;:::::::::::;;;;
-//MWWWWWWWWWWWNNWWNNNNNNXXXXXKKK0000OOxlccllol:.....,;:codxkkkkkkkkkxxxoc:,...              'lodddxxdolc,.                                                               .'coooodddddolllcccc:::;;;,,,,,,,
-//WWWWWWWWWWWNNNWWNNNNNNXXXXXKKK00OOxc,,::codoo:... .. ...';codxxxxxdoc:'..        ...      'coooddxxxxxdl;.                                                               .';looodddddooollllcc:::;;;,,,,
-//WWWWWWWWWWWNNNNNNNNNNNXXXXKKK00Od:,..;:codxkdl,.         ...';lool;,.....     ......     .;looodddxxxxxxdl,.                                                               .':odddddddddoooooolcc::;;,,,
-//WWWWWWWWWWNNNNNWNNNNNNXXXXXKK0x:....,;:ldkOkxd:.     .......  .....     .............   .':llooddddxxxxxxdo:.                                                                'ldxddddddddolcc::::c::;;;,
-//WWWWNNWWNNNNNNNNNNNNNNXXXXKK0d,.  .',;cldkkxxdc.       ...........        ....','''.....';ccllloolodxdxxxxdo:..                                                              .'codddol:;'.... ..:lllc:;;
-//NNNNNNNNNNNNNNNNNNNNNNXXXXKOo'.  ..,,;cldkkxddo'             .....        ..',;;;,,,,',;ccccllllllloddddddddl;.                                                                ..','..        .:dddolc::
-//NNNXK0OOkO00KXNNNNNNXXXK0ko;.......'.,:clddoloo:.                 .     ...';::cc::cccclllllllcclllllooodddddl;.                                                                             .:dxxxddolc
-//NNNNK0OOxdddddddxxxolcc:,...........';:clddl::;;.                       ..,;clloooodddoooloollcccllllllooddddoc,.                                                                           .;oxxkxxxddl
-//NNNNNXK0K00OOxolc:;'.... ..  .'...;;;;;::clc:,...                     ....'cloddxxxkxxdooooooollcclllllloodoool;.                                                                    ..    'lddxkkkkkxxd
-//NNNNNNXK00KXXKOkdl:,'.....''.';,,;:;:c:;,;;,,,'......           ...... .. .,coddxxxkkxddddddddolllllllllooooool:.                                                                        .,ldddxkOkkkkxx
-//NNNNNNNNWWWNXKOolccldooxxxxo;:lcc::;'..,:clcc:cddooll:,'''',;,'...     ..'....   .,dkkkxdddxxddddddddddddddoolc'.                                                    .',',,'.          ..',,,;::::coxxxx
-//XXXXXNNNNNNXXXXXXNNNNX0kO0KXNNNNNNK000OOKXXKXK0kxdlcc::;,'.';::,,;'..........',,.':lddddoooooddxxxkkkkkkOOkkkkxxddoc:'.                                                            ..';:::clllllc:;;;:cc
-//XXXXXNNNNNNXXXXXNNNNNNKkkkO00K000000KXXXXK000K0kxdoc:;;;;;,;cl:,,,'...........''';coddxddddoodddxxkkkkkkOOOOOkkxxxdolc;'..                                                        ..,:cccclooooool::;;:c
             { /*
 KKK000000KKK00KKKKKKKKKKKKKKKKKKKKKKK00K00KKKKK0K00KK000OkkkkkOkkkkkkxkkkkOkxdl;..                            ..;lxkkkkkkkkkkkkOOOOOOkOOkkkkkkkxddddddolc:;;;;cc:;,,;,,,,:llc;,'',,,,,;;::::::::::::;;;;
 KKK0000KKKKKKKKKKXXXXKXXXXKKKKKKKKKK000000KKKKKK000K0000OkkkkOOOkkkkkkkkkOOkxo:'.                               .'lxkkkkkkkkkkkOOOOOOkkkkkkxxdddoc;:clllc:::::cc:,,,,,,,;cllc;;,,'',,,,;;:::::::::::;;;;
