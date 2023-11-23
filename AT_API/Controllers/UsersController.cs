@@ -6,6 +6,8 @@ using AT_Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
+using System.Security.Claims;
 
 namespace AT_API.Controllers
 {
@@ -33,9 +35,11 @@ namespace AT_API.Controllers
         [Authorize]
         public async Task<ActionResult<User>> Me()
         {
-            var claims = Request.HttpContext.User.Claims;
-            var id = claims.FirstOrDefault(c => c.Type == "id").Value;
-            var current_user = await _userRepository.GetAsync(new Guid(id));
+            // that's a bit of a pain because there's no GetByName method
+            // in the interface so unless we use concrete classes we'll
+            // have to use IDs for now
+            var current_user = await _userRepository.GetAsync(new Guid(
+                User.FindFirstValue("id")));
             return Ok(current_user);
             // it doesn't matter if this code sucks (since duplicating it
             // in every method woudl be a pain)
@@ -84,6 +88,7 @@ namespace AT_API.Controllers
         [Authorize]
         public async Task<ActionResult> Subscribe()
         {
+            var test = User.Identity.Name;
             var idClaim = Request.HttpContext.User.Claims
                 .FirstOrDefault(c => c.Type == "id");
             if (idClaim == null)

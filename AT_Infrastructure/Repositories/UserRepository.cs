@@ -24,6 +24,11 @@ namespace AT_Infrastructure.Repositories
             return await _context.Users.FindAsync(id);
         }
 
+        public async Task<User?> GetByNameAsync(string name)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Username == name);
+        }
+
         public async Task<User> AddAsync(User entity)
         {
             await _context.Users.AddAsync(entity);
