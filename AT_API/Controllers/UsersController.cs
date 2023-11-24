@@ -5,6 +5,7 @@ using AT_Domain.Models;
 using AT_Infrastructure.Facades;
 using AT_Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -26,20 +27,14 @@ namespace AT_API.Controllers
             _userRepository = userRepository;
         }
 
-#if DEBUG
-        // just a small test method that is supposed to return YOU by your token
         [HttpGet("me")]
         [Authorize]
         public async Task<ActionResult<User>> Me()
         {
-            // that's a bit of a pain because there's no GetByName method
-            // in the interface so unless we use concrete classes we'll
-            // have to use IDs for now
             var current_user = await _userRepository.GetAsync(new Guid(
                 User.FindFirstValue("id")));
             return Ok(current_user);
         }
-#endif
 
         [HttpPost("register")]
         public async Task<ActionResult<SignedUpDTO>> Register(RegisterDTO inDto)
