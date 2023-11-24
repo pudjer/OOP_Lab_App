@@ -1,4 +1,5 @@
-﻿using AT_Domain.DTOs.InDTOs;
+﻿using AT_API.Utilities;
+using AT_Domain.DTOs.InDTOs;
 using AT_Domain.DTOs.OutDTOs;
 using AT_Domain.Models;
 using AT_Infrastructure.Facades;
@@ -44,6 +45,19 @@ namespace AT_API.Controllers
             // it doesn't matter if this code sucks (since duplicating it
             // in every method woudl be a pain)
             // we'll get to that later
+        }
+
+        [HttpGet("admin")]
+        [Authorize(Roles =AdunDatabaseAuthorizationHandler.ADMIN_ROLE)]
+        public async Task<ActionResult> AdminOnly()
+        {
+            return Ok("You're an admin user!");
+        }
+        [HttpGet("subscribed")]
+        [Authorize(Roles =AdunDatabaseAuthorizationHandler.SUBSCRIBED_ROLE)]
+        public async Task<ActionResult> SubscribedOnly()
+        {
+            return Ok("You are either subscribed or an admin user!");
         }
 #endif
 

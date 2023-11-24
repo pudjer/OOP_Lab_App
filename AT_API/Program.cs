@@ -1,18 +1,14 @@
+using AT_API.Utilities;
 using AT_Domain.Models;
 using AT_Infrastructure.DbContexts;
 using AT_Infrastructure.Facades;
 using AT_Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-/*
- * REBRANDING REQUESTED:
- * крч дела выглядят так, что отдельные микросервисы будут взаимодействовать между собой
- * через HTTP(S), поэтому в принципе это может уже и быть отдельным решением конкретно
- * для одного микросервиса (здесь — для аутентификации и т. д.)
- */
 
 namespace AT_API
 {
@@ -55,6 +51,7 @@ namespace AT_API
             builder.Services.AddScoped<DbContext, AppDbContext>();
             builder.Services.AddScoped<IAuthenticationFacade, AppAuthFacade>();
             builder.Services.AddScoped<IBaseModelRepository<User>, UserRepository>();
+            builder.Services.AddTransient<IAuthorizationHandler, AdunDatabaseAuthorizationHandler>();
 
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
