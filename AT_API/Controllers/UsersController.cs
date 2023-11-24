@@ -31,8 +31,7 @@ namespace AT_API.Controllers
         [Authorize]
         public async Task<ActionResult<User>> Me()
         {
-            var current_user = await _userRepository.GetAsync(new Guid(
-                User.FindFirstValue("id")));
+            var current_user = await this.GetUserAsync();
             return Ok(current_user);
         }
 
@@ -77,20 +76,12 @@ namespace AT_API.Controllers
         [Authorize]
         public async Task<ActionResult> Subscribe()
         {
-            var test = User.Identity.Name;
-            var idClaim = Request.HttpContext.User.Claims
-                .FirstOrDefault(c => c.Type == "id");
-            if (idClaim == null)
-            {
-                return Unauthorized();
-            }
-            var id = idClaim.Value;
-            var user = await _userRepository.GetAsync(new Guid(id));
-            if (user == null)
+            var current_user = await this.GetUserAsync();
+            if (current_user == null)
             {
                 return NotFound();
             }
-            if (user.IsSubscribed)
+            if (current_user.IsSubscribed)
             { /*
 KKK000000KKK00KKKKKKKKKKKKKKKKKKKKKKK00K00KKKKK0K00KK000OkkkkkOkkkkkkxkkkkOkxdl;..                            ..;lxkkkkkkkkkkkkOOOOOOkOOkkkkkkkxddddddolc:;;;;cc:;,,;,,,,:llc;,'',,,,,;;::::::::::::;;;;
 KKK0000KKKKKKKKKKXXXXKXXXXKKKKKKKKKK000000KKKKKK000K0000OkkkkOOOkkkkkkkkkOOkxo:'.                               .'lxkkkkkkkkkkkOOOOOOkkkkkkxxdddoc;:clllc:::::cc:,,,,,,,;cllc;;,,'',,,,;;:::::::::::;;;;
@@ -161,23 +152,16 @@ ooddddddddddxxxxxxkkkOOO00KKXXXNNNNNWWWWWWNNWWWWWNNNNNNNNNNNNNNNNNNNNWWNNNNNNNXK
 ooddodddddddxxdddxxkkkOOO0KKKXXXNNNNWWWWWWNWWWWWWNNNNNNNNNNNNWWNNNNNNWNNNNNNNNNXKK0KKKKKKKK0OOkkkkkO00KKKXKKKKK00KKXXXXXXKKKKKK00K000KK00000K000OOOOOOOOOOOOkkkkkkOOOOOOOOOOOOOOOOOkkkxkkkkkkkkxxxxxxxxx
             */    return NoContent();
             }
-            user.IsSubscribed = true;
-            user = await _userRepository.UpdateAsync(user);
-            return Ok(user);
+            current_user.IsSubscribed = true;
+            current_user = await _userRepository.UpdateAsync(current_user);
+            return Ok(current_user);
         }
 
         [HttpPost("unsubscribe")]
         [Authorize]
         public async Task<ActionResult> Unsubscribe()
         {
-            var idClaim = Request.HttpContext.User.Claims
-                .FirstOrDefault(c => c.Type == "id");
-            if (idClaim == null)
-            {
-                return Unauthorized();
-            }
-            var id = idClaim.Value;
-            var user = await _userRepository.GetAsync(new Guid(id));
+            var user = await this.GetUserAsync();
             if (user == null)
             {
                 return NotFound();
