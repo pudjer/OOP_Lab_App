@@ -16,22 +16,18 @@ namespace AT_API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly DbContext _context;
         private readonly IAuthenticationFacade _authenticationFacade;
         private readonly IBaseModelRepository<User> _userRepository;
 
-        public UsersController(DbContext context,
-            IAuthenticationFacade authenticationFacade,
+        public UsersController(IAuthenticationFacade authenticationFacade,
             IBaseModelRepository<User> userRepository)
         {
-            _context = context;
             _authenticationFacade = authenticationFacade;
             _userRepository = userRepository;
         }
 
 #if DEBUG
         // just a small test method that is supposed to return YOU by your token
-        // everything would break anyway but whatever
         [HttpGet("me")]
         [Authorize]
         public async Task<ActionResult<User>> Me()
@@ -42,22 +38,6 @@ namespace AT_API.Controllers
             var current_user = await _userRepository.GetAsync(new Guid(
                 User.FindFirstValue("id")));
             return Ok(current_user);
-            // it doesn't matter if this code sucks (since duplicating it
-            // in every method woudl be a pain)
-            // we'll get to that later
-        }
-
-        [HttpGet("admin")]
-        [Authorize(Roles =AdunDatabaseAuthorizationHandler.ADMIN_ROLE)]
-        public async Task<ActionResult> AdminOnly()
-        {
-            return Ok("You're an admin user!");
-        }
-        [HttpGet("subscribed")]
-        [Authorize(Roles =AdunDatabaseAuthorizationHandler.SUBSCRIBED_ROLE)]
-        public async Task<ActionResult> SubscribedOnly()
-        {
-            return Ok("You are either subscribed or an admin user!");
         }
 #endif
 
