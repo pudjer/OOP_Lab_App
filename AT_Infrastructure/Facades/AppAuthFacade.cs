@@ -41,7 +41,10 @@ namespace AT_Infrastructure.Facades
             await _context.AddAsync(newUser);
             await _context.SaveChangesAsync();
             
-            var userToken = GenerateToken(newUser.Username, newUser.Id.ToString(), newUser.IsAdmin);
+            var userToken = GenerateToken(newUser.Username,
+                newUser.Id.ToString(), 
+                newUser.IsAdmin,
+                newUser.IsSubscribed);
 
             return new SignedUpDTO
             {
@@ -63,14 +66,15 @@ namespace AT_Infrastructure.Facades
             {
                 return new LoggedInDTO
                 {
-                    Token = GenerateToken(username, user.Id.ToString(), user.IsAdmin)
+                    Token = GenerateToken(username, user.Id.ToString(),
+                    user.IsAdmin, user.IsSubscribed)
                 };
             }
 
             return null;
         }
 
-        private string GenerateToken(string username, string id, bool isAdmin)
+        private string GenerateToken(string username, string id, bool isAdmin, bool isSubscribed)
         {
             var keyString = _configuration["Bearer:Key"];
 
@@ -85,6 +89,7 @@ namespace AT_Infrastructure.Facades
                 new Claim("id", id),
                 new Claim("name", username),
                 new Claim("is_admin", isAdmin.ToString(), ClaimValueTypes.Boolean),
+                new Claim("is_subscribed", isSubscribed.ToString(), ClaimValueTypes.Boolean),
             };
 
             var token = new JwtSecurityToken(
