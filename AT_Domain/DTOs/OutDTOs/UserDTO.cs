@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AT_Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,15 @@ namespace AT_Domain.DTOs.OutDTOs
     {
         public Guid Id { get; set; }
         public string Username { get; set; }
-        public string IsAdmin { get; set; }
-        public string IsSubscribed { get; set; }
+        public bool IsAdmin { get; set; }
+        public bool IsSubscribed { get; set; }
+
+        public UserDTO(User user)
+        {
+            Id = user.Id;
+            Username = user.Username;
+            IsAdmin = user.IsAdmin;
+            IsSubscribed = user.IsSubscribed;
+        }
     }
 }

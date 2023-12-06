@@ -29,10 +29,10 @@ namespace AT_API.Controllers
 
         [HttpGet("me")]
         [Authorize]
-        public async Task<ActionResult<User>> Me()
+        public async Task<ActionResult<UserDTO>> Me()
         {
             var current_user = await this.GetUserAsync();
-            return Ok(current_user);
+            return Ok(new UserDTO(current_user!));
         }
 
         [HttpPost("register")]
@@ -154,7 +154,7 @@ ooddodddddddxxdddxxkkkOOO0KKKXXXNNNNWWWWWWNWWWWWWNNNNNNNNNNNNWWNNNNNNWNNNNNNNNNX
             }
             current_user.IsSubscribed = true;
             current_user = await _userRepository.UpdateAsync(current_user);
-            return Ok(current_user);
+            return Ok(new UserDTO(current_user!));
         }
 
         [HttpPost("unsubscribe")]
@@ -172,7 +172,7 @@ ooddodddddddxxdddxxkkkOOO0KKKXXXNNNNWWWWWWNWWWWWWNNNNNNNNNNNNWWNNNNNNWNNNNNNNNNX
             }
             user.IsSubscribed = false;
             user = await _userRepository.UpdateAsync(user);
-            return Ok(user);
+            return Ok(new UserDTO(user!));
         }
     }
 }
