@@ -45,7 +45,7 @@ namespace AT_Infrastructure.Repositories
                 await _context.SaveChangesAsync();
                 return existingUser;
             }
-            return null; // idk how to deal with this really
+            return null;
         }
 
         public async Task DeleteAsync(User entity)

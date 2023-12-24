@@ -10,9 +10,6 @@ using System.Text;
 
 namespace AT_Infrastructure.Facades
 {
-    // если использовать паттерн Aggregate, то, видимо, только одному классу нужно
-    // будет работать как с юзерами, так и подписками? (т. е. этот фасад объединить с
-    // SubscriptionFacade) ну или как-то так хз крч
     public class AppAuthFacade : IAuthenticationFacade
     {
         private readonly AppDbContext _context;

@@ -7,8 +7,6 @@ namespace AT_API.Utilities
 {
     internal static class AdunControllerExtensions
     {
-        // I'm scared of this not working
-        // But I'm probably more scared of this thing working
         public static async Task<User?> GetUserAsync(this ControllerBase controller)
         {
             var id = controller.User.FindFirstValue("id");
