@@ -19,14 +19,7 @@ namespace AT_API
             var builder = WebApplication.CreateBuilder(args);
             var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                                  policy =>
-                                  {
-                                      policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-                                  });
-            });
+
             builder.Services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -47,8 +40,6 @@ namespace AT_API
                     ValidateIssuerSigningKey = true,
                 };
             });
-
-            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
             builder.Services.AddCors(options =>
             {
@@ -88,8 +79,6 @@ namespace AT_API
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseCors(MyAllowSpecificOrigins);
 
             app.MapControllers();
 
